@@ -11,9 +11,43 @@
         <h2>My Library</h2>
         <button class="new-book">New Book</button>
     </header>
+
     <main>
         <div class="books-container"></div>
     </main>
+
+    <dialog class="modal">
+        <form method="dialog">
+            <h3>Add New Book</h3>
+            <div class="modal-inputs">
+                <div class="modal-input">
+                    <label for="title">Title</label>
+                    <input type="text" id="title" name="title" required>
+                </div>
+                <div class="modal-input">
+                    <label for="author">Author</label>
+                    <input type="text" id="author" name="author" required>
+                </div>
+                <div class="modal-input">
+                    <label for="pages">Pages</label>
+                    <input type="number" id="pages" name="pages" required>
+                </div>
+                <div class="modal-input">
+                    <label for="year">Year</label>
+                    <input type="number" id="year" name="year" required>
+                </div>
+            </div>
+            <div class="modal-radio">
+                <p><b>Finished Reading?</b></p>
+                <label for="hasRead">Yes</label>
+                <input type="radio" name="hasRead" id="yes" value="true" required>
+
+                <label for="notRead">No</label>
+                <input type="radio" name="hasRead" id="no" value="false">
+            </div>
+        </form>
+    </dialog>
+    
     <script src="library.js"></script>
 </body>
 </html>
