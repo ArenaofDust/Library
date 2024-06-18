@@ -98,3 +98,5 @@ function displayBooks() {
 }
 
 displayBooks();
+
+const newBookButton = document.querySelector(".new-book");

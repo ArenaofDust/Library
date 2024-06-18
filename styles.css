@@ -9,7 +9,6 @@ body {
     margin: 0;
     display: grid;
     gap: 1.5rem;
-    border: 1px solid red;
 }
 
 header {
@@ -50,7 +49,6 @@ main {
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     justify-items: center;
     gap: 1.5rem;
-    border: 1px solid red;
 }
 
 .book-card {
