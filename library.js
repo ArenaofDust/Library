@@ -79,5 +79,22 @@ function displayBooks() {
             hasReadElement.textContent = "Not Read"
             hasReadElement.style.color = "#dc2626";
         }
+        bookCard.appendChild(hasReadElement);
+
+        const deleteButton = document.createElement("button");
+        deleteButton.textContent = "Delete";
+        deleteButton.setAttribute("dataPosition", position);
+        deleteButton.classList.add("delete-button");
+        bookCard.appendChild(deleteButton);
+
+        const hasReadButton = document.createElement("button");
+        hasReadButton.textContent = "Finished Reading?";
+        hasReadButton.setAttribute("dataPosition", position);
+        hasReadButton.classList.add("hasRead-button");
+        bookCard.appendChild(hasReadButton);
+
+        position++;
     }
 }
+
+displayBooks();

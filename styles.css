@@ -24,7 +24,8 @@ header>h2{
     margin: 1rem 0;
 }
 
-.new-book {
+.new-book,
+.book-card > button{
     border: none;
     padding: 0.8rem 2rem;
     border-radius: 10px;
@@ -34,7 +35,8 @@ header>h2{
     cursor: pointer;
 }
 
-.new-book:hover {
+.new-book:hover,
+.book-card button:hover {
     transform: scale(0.95);
     opacity: 0.8;
 }
@@ -49,4 +51,30 @@ main {
     justify-items: center;
     gap: 1.5rem;
     border: 1px solid red;
+}
+
+.book-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    padding: 1.5rem 3rem;
+    box-shadow: #63636333 0px 2px 8px 0px;
+    width: min(350px)
+}
+
+.book-card>h4{
+    text-align: center;
+    font-size: 1.5rem;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+.book-card p{
+    margin: 0.5rem;
+}
+
+.book-card > button {
+    margin-top: 0.8rem;
 }
