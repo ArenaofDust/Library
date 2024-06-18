@@ -21,24 +21,19 @@ const myLibrary = [
         pages: 400,
         year: 1961,
         bookIsRead: false,
-
     }
 ];
 
-function Book(title, author, numPages, year, bookIsRead) {
+function Book(title, author, pages, year, bookIsRead) {
     this.title = title;
     this.author = author;
-    this.numPages = numPages;
+    this.pages = pages;
     this.year = year;
     this.bookIsRead = bookIsRead;
-
-    this.info = function() {
-        console.log(`${this.name} by ${this.author}, ${this.numPages} pages, ${this.bookIsRead} yet`);
-    }
 }
 
-function addBookToLibrary(book) {
-    return myLibrary(book);
+function addBookToLibrary(newBook) {
+    return myLibrary.push(newBook);
 }
 
 const booksContainer = document.querySelector(".books-container");
@@ -47,31 +42,31 @@ function displayBooks() {
     booksContainer.textContent = "";
     let position = 0;
 
-    for(book of myLibrary) {
+    for(newBook of myLibrary) {
         const bookCard = document.createElement("div");
         bookCard.classList.add("book-card");
         booksContainer.appendChild(bookCard);
 
         const titleElement = document.createElement("h4");
-        titleElement.textContent = book.title;
+        titleElement.textContent = newBook.title;
         bookCard.appendChild(titleElement);
 
         const authorElement = document.createElement("p");
-        authorElement.innerHTML = `<b>Author</b>: ${book.author}`;
+        authorElement.innerHTML = `<b>Author</b>: ${newBook.author}`;
         bookCard.appendChild(authorElement);
 
         const pagesElement = document.createElement("p");
-        pagesElement.innerHTML = `<b>Num of Pages</b>: ${book.pages}`;
+        pagesElement.innerHTML = `<b>Num of Pages</b>: ${newBook.pages}`;
         bookCard.appendChild(pagesElement);
 
         const yearElement = document.createElement("p");
-        yearElement.innerHTML = `<b>Year Published</b>: ${book.year}`;
+        yearElement.innerHTML = `<b>Year Published</b>: ${newBook.year}`;
         bookCard.appendChild(yearElement);
 
         const hasReadElement = document.createElement("p");
         hasReadElement.style.fontWeight = "bold";
 
-        if(book.bookIsRead) {
+        if(newBook.bookIsRead) {
             hasReadElement.textContent = "Read"
             hasReadElement.style.color = "#4ade80";
         }
@@ -113,7 +108,7 @@ addBookButton.addEventListener("click", () => {
     const author = document.getElementById("author").value;
     const pages = document.getElementById("pages").value;
     const year = document.getElementById("year").value;
-    const readElements = document.getElementsByName("hasReadBook");
+    const readElements = document.getElementsByName("bookIsRead");
 
     let bookIsRead = false;
 
@@ -144,7 +139,7 @@ addBookButton.addEventListener("click", () => {
 const closeButton = document.querySelector(".close-button");
 
 closeButton.addEventListener("click", () => {
-    modal.closest();
+    modal.close();
     clearDialog();
 });
 
@@ -159,7 +154,7 @@ booksContainer.addEventListener("click", (e) => {
         }
     }
 
-    if(e.target.classList.contains("hasReadButton")) {
+    if(e.target.classList.contains("hasRead-button")) {
         const pos = e.target.getAttribute("dataPosition");
 
         myLibrary[pos].bookIsRead ? (myLibrary[pos].bookIsRead = false) : (myLibrary[pos].bookIsRead = true);
