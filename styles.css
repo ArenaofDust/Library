@@ -1,0 +1,52 @@
+*, 
+*::before, 
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    margin: 0;
+    display: grid;
+    gap: 1.5rem;
+    border: 1px solid red;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    box-shadow: 0px 5px 10px -4px #94a3b8;
+}
+
+header>h2{
+    font-size: 2.5rem;
+    margin: 1rem 0;
+}
+
+.new-book {
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 10px;
+    background-color: #000;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.new-book:hover {
+    transform: scale(0.95);
+    opacity: 0.8;
+}
+
+main {
+    margin-bottom: 4rem;
+}
+
+.books-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    justify-items: center;
+    gap: 1.5rem;
+    border: 1px solid red;
+}
