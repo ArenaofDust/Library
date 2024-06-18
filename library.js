@@ -100,3 +100,39 @@ function displayBooks() {
 displayBooks();
 
 const newBookButton = document.querySelector(".new-book");
+const modal = document.querySelector(".modal")
+
+newBookButton.addEventListener("click", () => {
+    modal.showModal();
+});
+
+const addBookButton = document.querySelector(".add-book");
+
+addBookButton.addEventListener("click", () => {
+    const title = document.getElementById("title").value;
+    const author = document.getElementById("author").value;
+    const pages = document.getElementById("pages").value;
+    const year = document.getElementById("year").value;
+    const readElements = document.getElementsByName("hasReadBook");
+
+    let bookIsRead = false;
+
+    if(pages <= 0) {
+        alert("No negative pages allowed");
+        return;
+    }
+
+    if(year < 0) {
+        alert("No negative years allowed");
+        return;
+    }
+
+    for (let i = 0; i < readElements.length; i++) {
+        if(readElements[i].checked) {
+            bookIsRead = readElements[i].value === "true";
+        }
+    }
+
+});
+
+
