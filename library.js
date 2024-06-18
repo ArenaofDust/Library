@@ -148,4 +148,53 @@ closeButton.addEventListener("click", () => {
     clearDialog();
 });
 
+booksContainer.addEventListener("click", (e) => {
+    if(e.target.classList.contains("delete-button")) {
+        const pos = e.target.getAttribute("dataPosition");
+        if(confirm("Are you sure?")) {
+            myLibrary.splice(pos, 1);
+        }
+        else {
+            return;
+        }
+    }
+
+    if(e.target.classList.contains("hasReadButton")) {
+        const pos = e.target.getAttribute("dataPosition");
+
+        myLibrary[pos].bookIsRead ? (myLibrary[pos].bookIsRead = false) : (myLibrary[pos].bookIsRead = true);
+
+    }
+
+    displayBooks();
+});
+
+function dialogClickHandler(e) {
+    if (e.target.tagName !== "DIALOG") return;
+  
+    const rect = e.target.getBoundingClientRect();
+  
+    const clickedInDialog =
+      rect.top <= e.clientY &&
+      e.clientY <= rect.top + rect.height &&
+      rect.left <= e.clientX &&
+      e.clientX <= rect.left + rect.width;
+  
+    if (clickedInDialog === false) e.target.close();
+  
+    clearDialog();
+}
+
+document.addEventListener("click", dialogClickHandler);
+
+function clearDialog() {
+    const title = document.getElementById("title").value = "";
+    const author = document.getElementById("author").value = "";
+    const pages = document.getElementById("pages").value = "";
+    const year = document.getElementById("year").value = "";
+    ["no", "yes"].forEach((id) => {
+      document.getElementById(id).checked = false;
+    });
+}
+
 
