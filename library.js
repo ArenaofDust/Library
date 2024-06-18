@@ -4,7 +4,7 @@ const myLibrary = [
         author: "Albert Camus",
         pages: 250,
         year: 1942,
-        hasRead: true,
+        bookIsRead: true,
 
     },
     {
@@ -12,7 +12,7 @@ const myLibrary = [
         author: "Fyodor Dostoevsky",
         pages: 850,
         year: 1880,
-        hasRead: false,
+        bookIsRead: false,
 
     },
     {
@@ -20,20 +20,20 @@ const myLibrary = [
         author: "Joseph Heller",
         pages: 400,
         year: 1961,
-        hasRead: false,
+        bookIsRead: false,
 
     }
 ];
 
-function Book(title, author, numPages, year, hasRead) {
+function Book(title, author, numPages, year, bookIsRead) {
     this.title = title;
     this.author = author;
     this.numPages = numPages;
     this.year = year;
-    this.read = hasRead;
+    this.bookIsRead = bookIsRead;
 
     this.info = function() {
-        console.log(`${this.name} by ${this.author}, ${this.numPages} pages, ${this.read} yet`);
+        console.log(`${this.name} by ${this.author}, ${this.numPages} pages, ${this.bookIsRead} yet`);
     }
 }
 
@@ -71,7 +71,7 @@ function displayBooks() {
         const hasReadElement = document.createElement("p");
         hasReadElement.style.fontWeight = "bold";
 
-        if(book.hasRead) {
+        if(book.bookIsRead) {
             hasReadElement.textContent = "Read"
             hasReadElement.style.color = "#4ade80";
         }
@@ -130,9 +130,16 @@ addBookButton.addEventListener("click", () => {
     for (let i = 0; i < readElements.length; i++) {
         if(readElements[i].checked) {
             bookIsRead = readElements[i].value === "true";
+            break;
         }
     }
 
+    const newBook = new Book(title, author, pages, year, bookIsRead);
+    
+    addBookToLibrary(newBook);
+
+    displayBooks();
 });
 
+const clo
 
