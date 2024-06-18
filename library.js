@@ -141,5 +141,11 @@ addBookButton.addEventListener("click", () => {
     displayBooks();
 });
 
-const clo
+const closeButton = document.querySelector(".close-button");
+
+closeButton.addEventListener("click", () => {
+    modal.closest();
+    clearDialog();
+});
+
 
